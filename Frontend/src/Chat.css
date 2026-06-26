@@ -1,0 +1,113 @@
+ .chats {
+    max-width: 700px;
+    overflow-y: scroll;
+    padding: 8rem;
+}
+
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+}
+
+.gptDiv {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.userMessage {
+    background-color: #323232;
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin-left: 15rem;
+    max-width: 500px;
+    width: fit-content;
+}
+
+.hljs {
+    border-radius: 14px !important;
+}
+
+pre {
+    white-space: pre-wrap;
+} 
+
+/*resonsve*/
+/* ================= RESPONSIVE ================= */
+
+@media screen and (max-width: 768px) {
+
+    .chats {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .userMessage {
+        margin-left: auto;
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .chats {
+        padding: 0.7rem;
+    }
+
+    .userMessage {
+        max-width: 90%;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .userDiv,
+    .gptDiv {
+        font-size: 13px;
+    }
+
+    pre {
+        font-size: 12px;
+        overflow-x: auto;
+    }
+}
+/**/
+/* Code block styling */
+pre {
+    background-color: #1e1e1e;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+/* Inline code */
+p code {
+    background-color: #2d2d2d;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #e06c75;
+}
+/* Code block styling */
+.gptDiv pre {
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.gptDiv code {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+/* Inline code */
+.gptDiv p code {
+    background-color: #2d2d2d;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #e06c75;
+}
