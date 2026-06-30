@@ -107,7 +107,5 @@ IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_imagekit_id
 * Voice Input
 
 ##  Author
-
 **Khushboo Verma**
-
 GitHub: https://github.com/76210 
