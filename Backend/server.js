@@ -44,6 +44,14 @@ const connectDB = async () => {
 
 connectDB();
 
-app.listen(PORT, () => {
-    console.log(`server running on ${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`server running on ${PORT}`);
+// }); 
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
+  });
+}
+
+export default app;
