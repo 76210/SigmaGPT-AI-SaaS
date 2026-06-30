@@ -11,6 +11,7 @@ import passport from "passport";
 import session from "express-session";
 import "./config/passport.js";
 //
+import MongoStore from "connect-mongo"; //
 const app = express();
 const PORT = 8080;
 
@@ -18,11 +19,17 @@ app.use(express.json());
 app.use(cors());
 ///
 app.use(
-  session({
-    secret: "secret",
+//   session({
+//     secret: "secret",
+//     resave: false,
+//     saveUninitialized: false,
+//   }) 
+session({
+    secret: process.env.SESSION_SECRET || "secret",
     resave: false,
     saveUninitialized: false,
-  })
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+  }) 
 );
 
 app.use(passport.initialize()); 
