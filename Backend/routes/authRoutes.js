@@ -106,7 +106,8 @@ router.get(
     );
 
     res.redirect(
-      `http://localhost:5173/oauth-success?token=${token}`
+    // `http://localhost:5173/oauth-success?token=${token}`
+     `${process.env.FRONTEND_URL}/oauth-success?token=${token}` 
     );
   }
 );
