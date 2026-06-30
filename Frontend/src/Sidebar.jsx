@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config.js"; 
 import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
@@ -24,7 +25,8 @@ function Sidebar() {
     // 🔥 Fetch / Refresh Threads
    const refreshThreads = async () => {
     try {
-        const response = await fetch("http://localhost:8080/api/thread");
+       // const response = await fetch("http://localhost:8080/api/thread");
+        const response = await fetch(`${BASE_URL}/api/thread`); 
         const res = await response.json();
 
         const filteredData = res.map(thread => ({
@@ -42,12 +44,16 @@ function Sidebar() {
     /// fix this 
     const pinThread = async (threadId) => {
     try {
+        // await fetch(
+        //     `http://localhost:8080/api/thread/pin/${threadId}`,
+        //     {
+        //         method: "PATCH"
+        //     }
+        // ); 
         await fetch(
-            `http://localhost:8080/api/thread/pin/${threadId}`,
-            {
-                method: "PATCH"
-            }
-        );
+    `${BASE_URL}/api/thread/pin/${threadId}`,
+    { method: "PATCH" }
+   ); 
 
         refreshThreads();
     } catch (err) {
@@ -75,9 +81,12 @@ function Sidebar() {
         setCurrThreadId(newThreadId);
 
         try {
-            const response = await fetch(
-                `http://localhost:8080/api/thread/${newThreadId}`
-            );
+            // const response = await fetch(
+            //     `http://localhost:8080/api/thread/${newThreadId}`
+            // );
+           const response = await fetch(
+    `${BASE_URL}/api/thread/${newThreadId}`
+); 
             const res = await response.json();
 
             setPrevChats(res);
@@ -91,9 +100,12 @@ function Sidebar() {
     // 🗑 Delete Thread
     const deleteThread = async (threadId) => {
         try {
-            await fetch(`http://localhost:8080/api/thread/${threadId}`, {
-                method: "DELETE"
-            });
+            // await fetch(`http://localhost:8080/api/thread/${threadId}`, {
+            //     method: "DELETE"
+            // });
+           await fetch(`${BASE_URL}/api/thread/${threadId}`, {
+    method: "DELETE"
+}); 
 
             // remove from UI instantly
             setAllThreads(prev =>

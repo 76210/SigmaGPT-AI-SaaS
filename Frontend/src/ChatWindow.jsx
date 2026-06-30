@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config.js"; 
 import "./ChatWindow.css";
 import Chat from "./Chat.jsx";
 import { MyContext } from "./MyContext.jsx";
@@ -28,7 +29,8 @@ function ChatWindow() {
     const [uploadedFileUrl, setUploadedFileUrl] = useState("");
      const [messages, setMessages] = useState([]);  
       const fetchMessages = async () => {
-    const res = await fetch("/api/messages");
+    //const res = await fetch("/api/messages");
+    const res = await fetch(`${BASE_URL}/api/messages`);
     const data = await res.json();
     setMessages(data);
   };
@@ -97,7 +99,8 @@ const handleFileChange = async (e) => {
         const formData = new FormData();
         formData.append("file", selectedFile);
 
-        const res = await fetch("http://localhost:8080/api/upload", {
+      //  const res = await fetch("http://localhost:8080/api/upload", {
+        const res = await fetch(`${BASE_URL}/api/upload`, {
        // const res = await fetch("/api/upload", { 
             method: "POST",
             body: formData
@@ -136,7 +139,8 @@ const handleFileChange = async (e) => {
         setNewChat(false);
 
         try {
-            const response = await fetch("http://localhost:8080/api/chat", {
+           // const response = await fetch("http://localhost:8080/api/chat", {
+           const response = await fetch(`${BASE_URL}/api/chat`, {
            //const response = await fetch("/api/chat", { 
                 method: "POST",
                 headers: {

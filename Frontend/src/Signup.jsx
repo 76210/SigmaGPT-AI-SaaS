@@ -1,3 +1,4 @@
+import { BASE_URL } from "./config.js";
 import { useState } from "react";
 import axios from "axios";
 import "./Auth.css";
@@ -15,14 +16,18 @@ function Signup() {
 
     try {
 
-      const res = await axios.post(
-        "http://localhost:8080/api/auth/signup",
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      // const res = await axios.post(
+      //   "http://localhost:8080/api/auth/signup",
+      //   {
+      //     name,
+      //     email,
+      //     password,
+      //   }
+      // );
+     const res = await axios.post(
+  `${BASE_URL}/api/auth/signup`,
+  { name, email, password }
+); 
 
       localStorage.setItem(
         "token",
