@@ -98,7 +98,6 @@ IMAGEKIT_PUBLIC_KEY=your_imagekit_public_key
 IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
 IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_imagekit_id
 ```
-
 ##  Future Improvements
 
 * Streaming AI Responses
@@ -107,5 +106,9 @@ IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_imagekit_id
 * Voice Input
 
 ##  Author
+
 **Khushboo Verma**
 GitHub: https://github.com/76210 
+
+
+
